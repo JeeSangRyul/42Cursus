@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/30 14:38:40 by sji               #+#    #+#             */
+/*   Updated: 2022/11/30 15:48:17 by sji              ###   ########seoul.kr  */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line2.h"
 
 t_gnl_list	*ft_make_node(int fd) //초기화해주고 넘겨주는 역할
@@ -90,17 +102,17 @@ char *get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
 	node = ft_find_node(&backup, fd);//해당 fd의 노드가 저장됨 , 없으면 만들어서 저장됨.
-	node->backup = ft_read_file(fd, node->backup);
-  if (!node->backup)
+	node->buff = ft_read_file(fd, node->buff);
+  if (!node->buff)
   {
     ft_del_node(&backup, fd);//해당 fd의 노드를 제거해주는 함수
     return (NULL);
   }
   line = ft_get_line(node->backup);//line에 한 줄 저장.
   node->backup = ft_update_backup(node->backup);//\n앞을 출력해주고 남은 것 새롭게 갱신
-  ft_del_node(&list, fd); 
+  ft_del_node(&backup, fd); 
   //쓰이지 않는 backup파일은 지워준다. 단지 backup의 역할은 \n을기준으로 뽑아주고
   //출력되지 못한 친구를 저장해주는 역할밖에 하지않는다.
   //만약 backup에 무엇인가 들어있다면 아무것도 하지않고 return을 해준다.
-  return (result);
+  return (line);
 }
