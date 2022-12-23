@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line2_utils.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/30 14:38:45 by sji               #+#    #+#             */
+/*   Updated: 2022/11/30 15:48:18 by sji              ###   ########seoul.kr  */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "get_next_line2.h"
 
@@ -76,14 +87,14 @@ char  *ft_get_line(char *backup) //라인 하나 빼주는 역할
   if (!str)
     return (NULL);
   i = 0;
-  while (cache[i] && cache[i] != '\n')
+  while (backup[i] && backup[i] != '\n')
   {
-    str[i] = cache[i];
+    str[i] = backup[i];
     i++;
   }
-  if (cache[i] == '\n')
+  if (backup[i] == '\n')
   {
-    str[i] = cache[i];
+    str[i] = backup[i];
     i++;
   }
   str[i] = '\0';
