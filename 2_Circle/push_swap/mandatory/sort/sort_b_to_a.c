@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_b_to_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/22 16:10:27 by jee               #+#    #+#             */
-/*   Updated: 2022/12/23 00:04:04 by jee              ###   ########.fr       */
+/*   Created: 2023/01/07 22:33:42 by sji               #+#    #+#             */
+/*   Updated: 2023/01/07 22:36:27 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 static void push_b_to_a(t_stacks *stacks, int len)
 {

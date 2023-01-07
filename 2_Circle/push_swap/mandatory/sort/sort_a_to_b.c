@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_a_to_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:27:56 by jee               #+#    #+#             */
-/*   Updated: 2022/12/22 23:41:00 by jee              ###   ########.fr       */
+/*   Updated: 2023/01/07 22:22:04 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 static void    sort_three_or_under_chunk(t_stacks *stacks, int len)
 {
@@ -40,15 +40,12 @@ static void    move_a_to_b(t_stacks *stacks, int pivot[2], int cnt[3], int len)
                 {
                     operator_and_cnt("rr", cnt, stacks);
                     len--;
-                }//어차피 small보다 크고 big보다 작은 놈들은 b스택 아래로 보낼 상황이지만,
-                //a header가 large보다 클 경우 ra를 실행해야하기 때문에 명령어를 줄이기 위해,
-                //rr을 해준것이다.
+                }
                 else
                     operator_and_cnt("rb", cnt, stacks);
             }
         }
     }
-    
 }
 
 static void rotate_back(t_stacks *stacks, int ra_cnt, int rb_cnt)
@@ -77,7 +74,7 @@ void    sort_a_to_b(t_stacks *stacks, int len)
     select_pivot(pivot, stacks->a, len);
     move_a_to_b(stacks, pivot, cnt, len);
     rotate_back(stacks, cnt[RA_CNT], cnt[RB_CNT]);
-    sort_a_to_b(stacks, cnt[RA_CNT]); //a스택에 3개가 남겨질 때까지 재귀함수를 돈다.
+    sort_a_to_b(stacks, cnt[RA_CNT]);
     sort_b_to_a(stacks, cnt[RB_CNT]);
     sort_b_to_a(stacks, cnt[PB_CNT] - cnt[RB_CNT]);
 }

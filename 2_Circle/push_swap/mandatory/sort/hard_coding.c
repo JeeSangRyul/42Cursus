@@ -3,35 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   hard_coding.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:15:42 by jee               #+#    #+#             */
-/*   Updated: 2022/12/23 08:53:20 by jee              ###   ########.fr       */
+/*   Updated: 2023/01/07 22:21:58 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 void    sort_three(t_stacks *stacks)
 {
     t_stack *stack;
-    
+
     stack = &stacks->a;
     if (is_ascending(stack, 3), is_decending(stack, 3))
     {
-        if (is_ascending(stack, 3)) //123
+        if (is_ascending(stack, 3))
         return ;
-        else if (is_decending(stack, 3)) //321
+        else if (is_decending(stack, 3))
         {
-            operator("sa", stack);
-            operator("rra", stack);
+            operator("sa", stacks);
+            operator("rra", stacks);
         }
-        if (stack->head->next->content > stack->head->next->next->content) //231  
-        operator("rra", stack);
-        if (!is_ascending(stack, 3) && stack->head->content < stack->head->next->next->content) //132, 213
-        operator("sa",stack);
-        else if (!is_ascending(stack, 3)) // 312
-        operator("ra", stack);
+        if (stack->head->next->content > stack->head->next->next->content)
+        operator("rra", stacks);
+        if (!is_ascending(stack, 3) && stack->head->content < stack->head->next->next->content)
+        operator("sa",stacks);
+        else if (!is_ascending(stack, 3))
+        operator("ra", stacks);
     }
 }
 
@@ -68,38 +68,30 @@ void    sort_four(t_stacks *stacks)
     operator("pa", stacks);
 }
 
-static void    get_two_min_node(int min[2], t_stacks *stacks)
+static void    get_min_node(int min, t_stacks *stacks)
 {
     t_node  *tmp;
 
     tmp = stacks->a.head;
-    min[0] = tmp->content;
-    min[1] = tmp->content;
+    min = tmp->content;
     while (tmp)
     {
-        if (min[0] > tmp->content)
-        min[0] = tmp->content;
+        if (min > tmp->content)
+            min = tmp->content;
         tmp = tmp->next;
     }
-    while (stacks->a.head->content != min[0])
-        operator("ra", stacks);
-    operator("pb",stacks);
-    tmp = stacks->a.head;
-    while (tmp)
-    {
-        if (min[1] > tmp->content)
-        min[1] = tmp->content;
-        tmp = tmp->next;
-    }
-    while (stacks->a.head->content != min[1])
+    while (stacks->a.head->content != min)
         operator("ra", stacks);
     operator("pb",stacks);
 }
 
 void    sort_five(t_stacks *stacks)
 {   
-    int min[2];
-    get_two_min_node(min, stacks);
+    int min;
+
+    min = 0;
+    get_min_node(min, stacks);
+    get_min_node(min, stacks);
     sort_three(stacks);
     operator("pa", stacks);
     operator("pa", stacks);

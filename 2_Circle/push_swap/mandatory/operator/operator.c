@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   operator.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:41:23 by jee               #+#    #+#             */
-/*   Updated: 2022/12/21 00:13:22 by jee              ###   ########.fr       */
+/*   Updated: 2023/01/07 22:40:08 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 void    operator(char *op, t_stacks *stacks)
 {

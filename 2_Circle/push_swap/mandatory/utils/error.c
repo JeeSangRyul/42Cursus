@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 18:34:26 by jee               #+#    #+#             */
-/*   Updated: 2022/12/19 18:34:35 by jee              ###   ########.fr       */
+/*   Created: 2023/01/07 22:28:59 by sji               #+#    #+#             */
+/*   Updated: 2023/01/07 22:34:33 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
-void    throw_error()
+void    throw_error(t_stacks *stacks)
 {
+    free_all_stack(stacks);
     ft_putstr("Error\n");
-    exit(0);
+    exit(1);
 }

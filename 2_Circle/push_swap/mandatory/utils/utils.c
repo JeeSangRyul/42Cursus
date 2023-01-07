@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 18:33:23 by jee               #+#    #+#             */
-/*   Updated: 2022/12/20 20:44:23 by jee              ###   ########.fr       */
+/*   Created: 2023/01/07 22:32:50 by sji               #+#    #+#             */
+/*   Updated: 2023/01/07 22:33:10 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 void	ft_putstr(char *s)
 {

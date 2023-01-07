@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:32:17 by jee               #+#    #+#             */
-/*   Updated: 2022/12/21 21:44:05 by jee              ###   ########.fr       */
+/*   Updated: 2023/01/07 22:21:59 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 void    validation_nodes(t_stacks *stacks)
 {
@@ -28,10 +28,7 @@ void    validation_nodes(t_stacks *stacks)
         while (++j < stacks->a.len)
         {
             if (tmp1 != tmp2 && tmp1->content == tmp2->content)
-            {
-                free_stacks(stacks);
-                throw_error();
-            }
+                throw_error(stacks);
             tmp2 = tmp2->next;
         }
         tmp1 = tmp1->next;

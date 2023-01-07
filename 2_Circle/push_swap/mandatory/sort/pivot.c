@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   pivot.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:14:23 by jee               #+#    #+#             */
-/*   Updated: 2022/12/22 23:45:52 by jee              ###   ########.fr       */
+/*   Updated: 2023/01/07 22:39:26 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
 void select_pivot(int pivot[2], t_stack stack, int len)
 {

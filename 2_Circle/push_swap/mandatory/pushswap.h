@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 00:04:30 by jee               #+#    #+#             */
-/*   Updated: 2022/12/22 22:04:10 by jee              ###   ########.fr       */
+/*   Updated: 2023/01/07 21:42:38 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_stack
 {
     t_node  *head;
     t_node  *tail;
-    int     *len;
+    int     len;
 }   t_stack;
 
 typedef struct s_stacks
@@ -82,4 +82,7 @@ void        sort_five(t_stacks *stacks);
 void        sort_a_to_b(t_stacks *stacks, int len);
 void        free_all_stack(t_stacks *stacks);
 void        sort_b_to_a(t_stacks *stacks, int len);
+void        throw_error(t_stacks *stacks);
+char    	**ft_split(char const *s, char c);
+
 #endif

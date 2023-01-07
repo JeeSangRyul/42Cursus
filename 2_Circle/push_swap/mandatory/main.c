@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:32:19 by jee               #+#    #+#             */
-/*   Updated: 2022/12/22 23:32:08 by jee              ###   ########.fr       */
+/*   Updated: 2023/01/07 22:22:06 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,24 @@
 
 int main(int argc, char **argv)
 {
-    t_stacks    *stacks;
+    t_stacks    stacks;
 
-    if (argc == 1)
-    return 0;
-    init_stacks(&stacks, argc, ++argv);
-    if (is_ascending(&stacks->a, stacks->a.len))
+    if (argc < 2)
         return (0);
-    if (stacks->a.len == 3)
-        sort_three(stacks);
-    else if (stacks->a.len == 4)
-        sort_four(stacks);
-    else if (stacks->a.len == 5)
-        sort_five(stacks);
+    init_stacks(&stacks, argc, ++argv);
+    if (is_ascending(&stacks.a, stacks.a.len))
+    {
+        free_all_stack(&stacks);
+        return (0);
+    }
+    if (stacks.a.len == 3)
+        sort_three(&stacks);
+    else if (stacks.a.len == 4)
+        sort_four(&stacks);
+    else if (stacks.a.len == 5)
+        sort_five(&stacks);
     else
-        sort_a_to_b(stacks, stacks->a.len);
-    free_all_stack(stacks);
-    return 0;
+        sort_a_to_b(&stacks, stacks.a.len);
+    free_all_stack(&stacks);
+    return (0);
 }
