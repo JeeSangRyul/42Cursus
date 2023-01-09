@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 00:04:30 by jee               #+#    #+#             */
-/*   Updated: 2023/01/07 21:42:38 by sji              ###   ########seoul.kr  */
+/*   Updated: 2023/01/08 18:50:16 by jee              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-
+#include <stdio.h> //erase!!
 # define SMALL 0
 # define BIG 1
 
@@ -57,7 +57,7 @@ typedef struct s_stacks
 
 void        init_stacks(t_stacks *stacks, int argc, char **argv);
 char        *ft_strchr(const char *s, int c);
-long long   ft_atoi(const char *str);
+long long	ft_atoi(const char *str, t_stacks *stacks);
 size_t      ft_strlen(const char *s);
 void        *ft_calloc(size_t count, size_t size);
 void        *ft_memset(void *b, int c, size_t len);

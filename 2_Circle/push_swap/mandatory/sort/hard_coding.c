@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hard_coding.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:15:42 by jee               #+#    #+#             */
-/*   Updated: 2023/01/07 22:21:58 by sji              ###   ########seoul.kr  */
+/*   Updated: 2023/01/08 21:18:48 by jee              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void    sort_three(t_stacks *stacks)
         }
         if (stack->head->next->content > stack->head->next->next->content)
         operator("rra", stacks);
-        if (!is_ascending(stack, 3) && stack->head->content < stack->head->next->next->content)
+        if (!is_ascending(stack, 3) && stack->head->content \
+            < stack->head->next->next->content)
         operator("sa",stacks);
         else if (!is_ascending(stack, 3))
         operator("ra", stacks);
@@ -68,30 +69,67 @@ void    sort_four(t_stacks *stacks)
     operator("pa", stacks);
 }
 
-static void    get_min_node(int min, t_stacks *stacks)
+void bubbleSort(int value[], int count)
+{
+  int   i;
+  int   j;
+  int   temp;
+
+  i = count - 1;
+  while (i >= 0)
+  {
+    j = 1;
+    while (j <= i)
+    {
+        if (value[j - 1] > value[j])
+        {
+            temp = value[j - 1];
+            value[j - 1] = value[j];
+            value[j] = temp;
+        }
+        j++;
+    }
+    i--;
+  }
+}
+
+static void    get_min_node(int min[], int str[], t_stacks *stacks)
 {
     t_node  *tmp;
+    int     i;
 
     tmp = stacks->a.head;
-    min = tmp->content;
-    while (tmp)
+    i = 0;
+    while (tmp && i < 5)
     {
-        if (min > tmp->content)
-            min = tmp->content;
+        str[i] = tmp->content;
         tmp = tmp->next;
+        i++;
     }
-    while (stacks->a.head->content != min)
-        operator("ra", stacks);
-    operator("pb",stacks);
+    printf("array = %d %d %d %d %d\n", str[0], str[1], str[2], str[3],str[4]);
+    bubbleSort(str, 5);//정렬된 str
+    printf("array = %d %d %d %d %d\n", str[0], str[1], str[2], str[3],str[4]);
+    min[0] = str[0];
+    min[1] = str[1];
 }
 
 void    sort_five(t_stacks *stacks)
 {   
-    int min;
+    int str[5];
+    int min[2];
+    int i;
 
-    min = 0;
-    get_min_node(min, stacks);
-    get_min_node(min, stacks);
+    i = 0;
+    get_min_node(min, str, stacks);
+    while (i < 5)
+    {
+        if(stacks->a.head->content == min[0] ||\
+            stacks->a.head->content == min[1])
+            operator("pb", stacks);
+        else
+            operator("ra", stacks);
+        i++;
+    }
     sort_three(stacks);
     operator("pa", stacks);
     operator("pa", stacks);

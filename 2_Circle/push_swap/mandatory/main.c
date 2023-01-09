@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:32:19 by jee               #+#    #+#             */
-/*   Updated: 2023/01/07 22:22:06 by sji              ###   ########seoul.kr  */
+/*   Updated: 2023/01/08 20:56:04 by jee              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
     if (argc < 2)
         return (0);
-    init_stacks(&stacks, argc, ++argv);
+    init_stacks(&stacks, argc, argv);
     if (is_ascending(&stacks.a, stacks.a.len))
     {
         free_all_stack(&stacks);

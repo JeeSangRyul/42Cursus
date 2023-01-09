@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+         #
+#    By: jee <jee@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 18:32:23 by sji               #+#    #+#              #
-#    Updated: 2023/01/07 21:26:52 by sji              ###   ########seoul.kr   #
+#    Updated: 2023/01/08 16:38:25 by jee              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRC					=	main.c\
 
 SRCS				=	$(addprefix $(MAND_DIR), $(SRC))
 
-OBJS				=	$(SRCS: .c=.o)
+OBJS				=	$(SRCS:.c=.o)
 
 
 all : $(NAME)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
+/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 22:32:50 by sji               #+#    #+#             */
-/*   Updated: 2023/01/07 22:33:10 by sji              ###   ########seoul.kr  */
+/*   Updated: 2023/01/08 20:56:03 by jee              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,17 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-static	int	ft_isdigit(int c)
+static	void	ft_isdigit(const char *str, t_stacks *stacks)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	int	i;
+
+	i = 0;
+	while(str[i])
+	{
+		if(!(str[i] >= '0' && str[i] <= '9'))
+			free_all_stack(stacks);
+		i++;
+	}
 }
 
 size_t ft_strlen(const char *s)
@@ -68,38 +73,31 @@ char	*ft_strchr(const char *s, int c)
 	return (0);
 }
 
-static	long long	ft_range_chk(const char *str, size_t i, long long sign)
+long long	ft_atoi(const char *str, t_stacks *stacks)
 {
-	long long	num;
-
-	num = 0;
-	while (ft_isdigit(str[i]))
-	{	
-		num = (num * 10) + (str[i] - '0');
-		++i;
-	}
-    if (ft_isdigit(str[i]) == 0)
-    {
-        return 0; //error
-    }
-	return (num * sign);
-}
-
-long long	ft_atoi(const char *str)
-{
-	size_t	i;
+	size_t			i;
 	long long		sign;
+	long long		num;
 
 	i = 0;
 	sign = 1;
+	num = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i++] == '-')
-			sign = -1;
+			sign *= -1;
 	}
-	return (ft_range_chk(str, i, sign));
+	if (!str[i])
+		free_all_stack(stacks);
+	ft_isdigit(&str[i], stacks);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = (num * 10) + (str[i] - '0');
+		++i;
+	}
+	return (sign * num);
 }
 
 void	*ft_memset(void *b, int c, size_t len)
