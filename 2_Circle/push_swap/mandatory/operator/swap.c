@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jee <jee@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:35:33 by jee               #+#    #+#             */
-/*   Updated: 2022/12/20 20:34:06 by jee              ###   ########.fr       */
+/*   Updated: 2023/01/10 13:46:49 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../pushswap.h"
 
-int swap(t_stack *stack)
+int	swap(t_stack *stack)
 {
-    t_node *a;
-    t_node *b;
+	t_node	*a;
+	t_node	*b;
 
-    if(stack->len < 2)
-    return (0);
-    else if (stack->len == 2)
-        stack->tail = stack->head;
-    a = stack->head;
-    b = stack->head->next;
-    a->next = b->next;
-    if(b->next)
-        b->next->prev = a;
-    a->prev = b;
-    b->next = a;
-    b->prev = NULL;
-    stack->head = b;
-    stack->head->next = a;
-    return (1);
+	if (stack->len < 2)
+		return (0);
+	else if (stack->len == 2)
+		stack->tail = stack->head;
+	a = stack->head;
+	b = stack->head->next;
+	a->next = b->next;
+	if (b->next)
+		b->next->prev = a;
+	a->prev = b;
+	b->next = a;
+	b->prev = NULL;
+	stack->head = b;
+	stack->head->next = a;
+	return (1);
 }
