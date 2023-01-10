@@ -6,13 +6,13 @@
 #    By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 18:32:23 by sji               #+#    #+#              #
-#    Updated: 2023/01/10 14:40:50 by sji              ###   ########seoul.kr   #
+#    Updated: 2023/01/10 22:42:23 by sji              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME				= push_swap
 
-CC					= cc
+CC					= cc -g
 CFLAGS				= -Wall -Wextra -Werror
 AR					= ar rcs
 RM					= rm -f

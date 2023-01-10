@@ -6,7 +6,7 @@
 /*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 22:32:50 by sji               #+#    #+#             */
-/*   Updated: 2023/01/10 14:25:14 by sji              ###   ########.fr       */
+/*   Updated: 2023/01/10 22:29:39 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static	void	ft_isdigit(const char *str, t_stacks *stacks)
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			free_all_stack(stacks);
+			throw_error(stacks);
 		i++;
 	}
 }
@@ -42,7 +42,7 @@ long long	ft_atoi(const char *str, t_stacks *stacks)
 			sign *= -1;
 	}
 	if (!str[i])
-		free_all_stack(stacks);
+		throw_error(stacks);
 	ft_isdigit(&str[i], stacks);
 	while (str[i] >= '0' && str[i] <= '9')
 	{

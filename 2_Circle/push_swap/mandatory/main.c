@@ -6,11 +6,25 @@
 /*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:32:19 by jee               #+#    #+#             */
-/*   Updated: 2023/01/10 14:03:36 by sji              ###   ########seoul.kr  */
+/*   Updated: 2023/01/10 22:52:02 by sji              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+void stack_null(t_stacks *stacks)
+{
+	stacks->a.head = NULL;
+	stacks->a.tail = NULL;
+	stacks->a.len = 0;
+
+
+	stacks->b.head = NULL;
+	stacks->b.tail = NULL;
+	stacks->b.len = 0;
+
+
+}
 
 int	main(int argc, char **argv)
 {
@@ -18,6 +32,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
+	stack_null(&stacks);
 	init_stacks(&stacks, argc, argv);
 	if (is_ascending(&stacks.a, stacks.a.len))
 	{

@@ -6,7 +6,7 @@
 /*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 22:28:59 by sji               #+#    #+#             */
-/*   Updated: 2023/01/10 14:28:42 by sji              ###   ########.fr       */
+/*   Updated: 2023/01/10 23:02:51 by sji              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	throw_error(t_stacks *stacks)
 {
 	free_all_stack(stacks);
-	ft_putstr("Error\n");
+//	ft_putstr("Error\n");
+	write(2, "Error\n", 6);
 	exit(1);
 }
