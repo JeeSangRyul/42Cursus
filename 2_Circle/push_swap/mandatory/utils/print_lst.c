@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   print_lst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 22:28:59 by sji               #+#    #+#             */
-/*   Updated: 2023/01/12 22:14:17 by sji              ###   ########seoul.kr  */
+/*   Created: 2023/01/12 22:48:26 by sji               #+#    #+#             */
+/*   Updated: 2023/01/12 22:53:31 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-void	throw_error(t_stacks *stacks)
+void    print_lst(t_list *list)
 {
-	free_all_stack(stacks);
-	write(2, "Error\n", 6);
-	exit(1);
+    t_node_op   *cur;
+    char        *str;
+
+    cur = list->head;
+    while (cur)
+    {
+        str = cur->op;
+        ft_putstr(str);
+        ft_putstr("\n");
+        cur = cur->next;
+    }
 }

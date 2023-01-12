@@ -1,20 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 22:28:59 by sji               #+#    #+#             */
-/*   Updated: 2023/01/12 22:14:17 by sji              ###   ########seoul.kr  */
+/*   Created: 2023/01/12 22:13:45 by sji               #+#    #+#             */
+/*   Updated: 2023/01/12 22:37:14 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-void	throw_error(t_stacks *stacks)
+void	free_all_stack(t_stacks *stacks)
 {
-	free_all_stack(stacks);
-	write(2, "Error\n", 6);
-	exit(1);
+	t_node	*tmp;
+	t_node	*target;
+
+	tmp = stacks->a.head;
+	while (tmp)
+	{
+		target = tmp;
+		tmp = tmp->next;
+		free(target);
+	}
+}
+
+void	free_list(t_list *list)
+{
+	t_node_op	*cur;
+	t_node_op	*tmp;
+
+	cur = list->head;
+	while (cur)
+	{
+		tmp = cur;
+		cur = cur->next;
+		free(tmp);
+	}
 }

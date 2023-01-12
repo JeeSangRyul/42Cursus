@@ -6,7 +6,7 @@
 /*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 23:02:07 by jee               #+#    #+#             */
-/*   Updated: 2023/01/10 14:27:51 by sji              ###   ########.fr       */
+/*   Updated: 2023/01/12 22:23:10 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ static t_node	*split_av(char *av, t_node *tmp, t_stack *a, t_stacks *b)
 	char	**node_arr;
 
 	node_arr = ft_split(av, ' ');
+	if (!node_arr[0])
+	{
+		free(node_arr);
+		throw_error(b);
+	}
 	while (*node_arr)
 	{
 		tmp->next = new_node(*node_arr, b);
@@ -72,20 +77,6 @@ static t_node	*init_stacks_head(char *argv, t_stack *stack, t_stacks *stacks)
 		free(head);
 	}
 	return (tmp);
-}
-
-void	free_all_stack(t_stacks *stacks)
-{
-	t_node	*tmp;
-	t_node	*target;
-
-	tmp = stacks->a.head;
-	while (tmp)
-	{
-		target = tmp;
-		tmp = tmp->next;
-		free(target);
-	}
 }
 
 void	init_stacks(t_stacks *stacks, int argc, char **argv)

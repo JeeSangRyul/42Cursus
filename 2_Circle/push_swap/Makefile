@@ -6,7 +6,7 @@
 #    By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 18:32:23 by sji               #+#    #+#              #
-#    Updated: 2023/01/10 22:42:23 by sji              ###   ########.fr        #
+#    Updated: 2023/01/12 22:10:10 by sji              ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ STACK_DIR			=	stack/
 STACK_SRC			=	stack.c validate.c
 
 OPERATOR_DIR		=	operator/
-OPERATOR_SRC		=	operator.c push.c reverse_rotate.c rotate.c swap.c
+OPERATOR_SRC		=	operator.c push.c reverse_rotate.c rotate.c swap.c \
+						create_node_op.c operator2.c optimization.c
 
 SORT_DIR			=	sort/
 SORT_SRC			=	hard_coding.c pivot.c sort_a_to_b.c sort_b_to_a.c \

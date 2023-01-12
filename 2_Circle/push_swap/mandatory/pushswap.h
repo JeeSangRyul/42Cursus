@@ -6,7 +6,7 @@
 /*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 00:04:30 by jee               #+#    #+#             */
-/*   Updated: 2023/01/10 16:15:24 by sji              ###   ########seoul.kr  */
+/*   Updated: 2023/01/12 22:52:06 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h> //!!!!!!!!!!!!!!!!!
 # define SMALL 0
 # define BIG 1
 # define RA_CNT 0
 # define PB_CNT 1
 # define PA_CNT 1
 # define RB_CNT 2
-
-# define TRUE 1
-# define FALSE 0
 
 typedef struct s_node
 {
@@ -39,10 +37,24 @@ typedef struct s_stack
 	int		len;
 }				t_stack;
 
+typedef struct s_node_op
+{
+	char 				*op;
+	struct s_node_op	*next;
+}				t_node_op;
+
+typedef struct s_list
+{
+    t_node_op       *head;
+    t_node_op       *tail;
+    int             len;
+}                   t_list;
+
 typedef struct s_stacks
 {
 	t_stack	a;
 	t_stack	b;
+	t_list	list;
 }				t_stacks;
 
 void		init_stacks(t_stacks *stacks, int argc, char **argv);
@@ -75,5 +87,13 @@ void		sort_b_to_a(t_stacks *stacks, int len);
 void		throw_error(t_stacks *stacks);
 char		**ft_split(char const *s, char c);
 void		bubble_sort(int value[], int count);
+void	    lstadd_back_op(t_list *list, char *op);
+void	    swap_and_lstadd(char *op, t_stacks *stacks);
+void	    push_and_lstadd(char *op, t_stacks *stacks);
+void	    rotate_and_lstadd(char *op, t_stacks *stacks);
+void	    reverse_rotate_and_lstadd(char *op, t_stacks *stacks);
+void		free_list(t_list *list);
+void	    optimization(t_stacks *stacks);
+void	    print_lst(t_list *list);
 
 #endif
