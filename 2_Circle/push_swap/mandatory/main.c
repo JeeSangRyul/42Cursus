@@ -6,13 +6,13 @@
 /*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:32:19 by jee               #+#    #+#             */
-/*   Updated: 2023/01/12 22:54:31 by sji              ###   ########seoul.kr  */
+/*   Updated: 2023/01/13 16:20:39 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static void stack_null(t_stacks *stacks)
+static void	stack_null(t_stacks *stacks)
 {
 	stacks->a.head = NULL;
 	stacks->a.tail = NULL;
@@ -25,18 +25,18 @@ static void stack_null(t_stacks *stacks)
 	stacks->list.len = 0;
 }
 
-void	sort_len(t_stacks *stacks, int len)
+static void	sort_len(t_stacks *stacks, int len)
 {
-	if (stacks->a.len == 2)
-		sort_three_or_under(stacks);
-	else if (stacks->a.len == 3)
+	if (len == 2)
+		sort_three_or_under(stacks, len);
+	else if (len == 3)
 		sort_three(stacks);
-	else if (stacks->a.len == 4)
+	else if (len == 4)
 		sort_four(stacks);
-	else if (stacks->a.len == 5)
+	else if (len == 5)
 		sort_five(stacks);
 	else
-		sort_a_to_b(stacks, stacks->a.len);
+		sort_a_to_b(stacks, len);
 }
 
 int	main(int argc, char **argv)
@@ -62,5 +62,6 @@ int	main(int argc, char **argv)
 	}
 	print_lst(&stacks.list);
 	free_all_stack(&stacks);
+	free_list(&stacks.list);
 	return (0);
 }

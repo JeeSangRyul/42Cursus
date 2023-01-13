@@ -6,7 +6,7 @@
 #    By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 18:32:23 by sji               #+#    #+#              #
-#    Updated: 2023/01/12 22:10:10 by sji              ###   ########seoul.kr   #
+#    Updated: 2023/01/13 14:00:06 by sji              ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RM					= rm -f
 MAND_DIR			= ./mandatory/
 
 STACK_DIR			=	stack/
-STACK_SRC			=	stack.c validate.c
+STACK_SRC			=	stack.c validate.c free.c
 
 OPERATOR_DIR		=	operator/
 OPERATOR_SRC		=	operator.c push.c reverse_rotate.c rotate.c swap.c \
@@ -31,7 +31,7 @@ SORT_SRC			=	hard_coding.c pivot.c sort_a_to_b.c sort_b_to_a.c \
 						bubble_sort.c
 
 UTILS_DIR			=	utils/
-UTILS_SRC			=	error.c ft_split.c utils.c utils2.c
+UTILS_SRC			=	error.c ft_split.c utils.c utils2.c print_lst.c
 
 SRC					=	main.c\
 						$(addprefix $(STACK_DIR), $(STACK_SRC))\

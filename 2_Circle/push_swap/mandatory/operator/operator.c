@@ -6,7 +6,7 @@
 /*   By: sji <sji@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:41:23 by jee               #+#    #+#             */
-/*   Updated: 2023/01/12 22:36:22 by sji              ###   ########seoul.kr  */
+/*   Updated: 2023/01/13 14:26:28 by sji              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,10 @@
 
 void	operator(char *op, t_stacks *stacks)
 {
-	if (!ft_strcmp(op, "sa"))
-		swap_and_lstadd(op, stacks);
-	else if (!ft_strcmp(op, "sb"))
-		swap_and_lstadd(op, stacks);
-	else if (!ft_strcmp(op, "ss"))
-		swap_and_lstadd(op, stacks);
-	else if (!ft_strcmp(op, "pa"))
-		push_and_lstadd(op, stacks);
-	else if (!ft_strcmp(op, "pb"))
-		push_and_lstadd(op, stacks);
-	else if (!ft_strcmp(op, "ra"))
-		rotate_and_lstadd(op, stacks);
-	else if (!ft_strcmp(op, "rb"))
-		rotate_and_lstadd(op, stacks);
-	else if (!ft_strcmp(op, "rr"))
-		rotate_and_lstadd(op, stacks);
-	else if (!ft_strcmp(op, "rra"))
-		reverse_rotate_and_lstadd(op, stacks);
-	else if (!ft_strcmp(op, "rrb"))
-		reverse_rotate_and_lstadd(op, stacks);
-	else if (!ft_strcmp(op, "rrr"))
-		reverse_rotate_and_lstadd(op, stacks);
+	swap_and_lstadd(op, stacks);
+	push_and_lstadd(op, stacks);
+	rotate_and_lstadd(op, stacks);
+	reverse_rotate_and_lstadd(op, stacks);
 }
 
 void	operator_and_cnt(char *op, int cnt[3], t_stacks *stacks)
